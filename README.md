@@ -113,7 +113,7 @@ curl -X GET http://localhost:8000/api/tasks/incomplete
 - Create a project
 
 ```bash
-python manage.py startproject core .
+django-admin startproject core .
 ```
 
 - Create a TODO list application
@@ -139,4 +139,16 @@ class Task(models.Model):
     def __str__(self):
         return self.task
 ``` 
+
+- Make migrations
+
+```bash
+python manage.py makemigrations 
+```
+
+- Migrate
+
+```bash
+python manage.py migrate
+```
 
