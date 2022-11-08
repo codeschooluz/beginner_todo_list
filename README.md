@@ -101,3 +101,42 @@ curl -X GET http://localhost:8000/api/tasks/completed
 ```bash
 curl -X GET http://localhost:8000/api/tasks/incomplete
 ```
+
+# List of tasks
+
+- Create a virtual environment
+- Create a requirements.txt file
+- Create a .gitignore file
+
+
+
+- Create a project
+
+```bash
+python manage.py startproject core .
+```
+
+- Create a TODO list application
+
+```bash
+python manage.py startapp todoAPI
+```
+
+- Create a TODO list model
+
+```python
+from django.db import models
+from django.contrib.auth.models import User
+
+class Task(models.Model):
+    task = models.CharField(max_length=255)
+    description = models.TextField()
+    status = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.task
+``` 
+
